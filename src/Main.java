@@ -13,7 +13,17 @@ public class Main {
             }
         }
 
+        int a = 12;
+        int b = 7;
         Calculator calcClass = new Calculator();
+        System.out.println("A=" + a);
+        calcClass.setA(a);
+        System.out.println("B=" + b);
+        calcClass.setB(b);
+        System.out.println("A + B =" +  calcClass.add());
+        System.out.println("A - B =" + calcClass.subtract());
+        System.out.println("A * B =" + calcClass.multiply());
+        System.out.println("A / B =" + calcClass.divide());
 
     }
 }
