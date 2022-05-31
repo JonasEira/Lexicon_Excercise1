@@ -1,9 +1,13 @@
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
 
-        TestClass mainClass = new TestClass("Jonas");
-        mainClass.printHello();
-        mainClass.printName();
+        HelloClass hello = new HelloClass("Jonas");
+        hello.printHello();
+        hello.printName();
         int year = 01;
         YearTests leapClass = new YearTests(year);
         for (int n = 0; n < 2022; n++){
@@ -24,6 +28,48 @@ public class Main {
         System.out.println("A - B =" + calcClass.subtract());
         System.out.println("A * B =" + calcClass.multiply());
         System.out.println("A / B =" + calcClass.divide());
+
+        int c = 9 ;
+
+        double average = calcClass.avg(a,b,c);
+        System.out.println("Average is " + average);
+
+        MyParser myParser = new MyParser();
+        String words = null;
+        try {
+            System.out.println("Enter words: ");
+            words = myParser.getWords();
+            System.out.println(words);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        hello = new HelloClass(words);
+        hello.printHello();
+        hello.printName();
+
+
+        try {
+            System.out.println("Enter a number: ");
+            int val1 = myParser.getInteger();
+            System.out.println("Enter another number: ");
+            int val2 = myParser.getInteger();
+            Calculator calc = new Calculator();
+            calc.setA(val1);
+            calc.setB(val2);
+            System.out.println("Their sum is: " + calc.add());
+            System.out.println("Their product is: " + calc.multiply());
+            System.out.println("Their difference is: " + calc.subtract());
+            System.out.println("Their quota is: " + calc.divide());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Date today = new Date((long)86399000);
+        SimpleDateFormat dateForm = new SimpleDateFormat("hh:mm:ss");
+
+        System.out.println(dateForm.format(today));
+
+        
 
     }
 }

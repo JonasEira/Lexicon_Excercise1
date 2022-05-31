@@ -1,12 +1,12 @@
-public class TestClass {
+public class HelloClass {
 
     private final String name;
 
-    public TestClass() {
+    public HelloClass() {
         this.name = "DefaultName";
     }
 
-    public TestClass(String name) {
+    public HelloClass(String name) {
         this.name = name;
     }
 

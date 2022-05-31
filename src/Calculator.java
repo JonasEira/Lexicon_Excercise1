@@ -29,4 +29,8 @@ public class Calculator {
     public int divide() {
         return (int)((double)this.a / (double)this.b);
     }
+
+    public double avg(int a, int b, int c) {
+        return (a + b + c)/3.00;
+    }
 }
