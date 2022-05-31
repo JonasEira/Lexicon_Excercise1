@@ -72,15 +72,20 @@ public class Main {
         int numGuess;
         try {
             int randNum = (int) (100*Math.random());
-            System.out.println("Guess a number between 0 and 100: (Correct is " + randNum + ")");
-            numGuess = myParser.getInteger();
-            if(randNum < numGuess){
-                System.out.println("Your guess was above");
-            } else if(randNum > numGuess) {
-                System.out.println("Your guess was below");
-            } else {
-                System.out.println("You guessed Correct!");
+            boolean wrong = true;
+            while(wrong){
+                System.out.println("Guess a number between 0 and 100: (Correct is " + randNum + ")");
+                numGuess = myParser.getInteger();
+                if(randNum < numGuess){
+                    System.out.println("Your guess was above");
+                } else if(randNum > numGuess) {
+                    System.out.println("Your guess was below");
+                } else {
+                    wrong = false;
+                    System.out.println("You guessed Correct!");
+                }
             }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
