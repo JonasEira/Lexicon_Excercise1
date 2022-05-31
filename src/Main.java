@@ -69,7 +69,21 @@ public class Main {
 
         System.out.println(dateForm.format(today));
 
-        
+        int numGuess;
+        try {
+            int randNum = (int) (100*Math.random());
+            System.out.println("Guess a number between 0 and 100: (Correct is " + randNum + ")");
+            numGuess = myParser.getInteger();
+            if(randNum < numGuess){
+                System.out.println("Your guess was above");
+            } else if(randNum > numGuess) {
+                System.out.println("Your guess was below");
+            } else {
+                System.out.println("You guessed Correct!");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
